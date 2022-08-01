@@ -1,37 +1,29 @@
 namespace CodingKatas.LinkedLists
 {
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    public class AddTwoNumbers
+    
+    public class TwoNumbersSum
     {
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
-            var right = l1.next;
-            var left = l2.next;
-            var amount = (right.val + left.val) % 10;
-            var root = new ListNode(amount);
+            var amount = (l1.val + l2.val);
+            var root = new ListNode(amount % 10);
+            l1 = l1?.next;
+            l2 = l2?.next;
             var nextNode = root;
-            while (right != null && left != null)
+            while (l1 != null || l2 != null)
             {
-                right = right?.next;
-                left = left?.next;
                 amount = amount >= 10 ? 1 : 0;
-                amount += ((right == null ? 0 : right.val) + (left == null ? 0 : left.val));
+                amount += ((l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val));
 
                 nextNode.next = new ListNode(amount % 10);
                 nextNode = nextNode.next;
+                l1 = l1?.next;
+                l2 = l2?.next;
             }
-
+            if (l1 == null && l2 == null && amount >= 10)
+            {
+                nextNode.next = new ListNode(1);
+            }
             return root;
         }
     }

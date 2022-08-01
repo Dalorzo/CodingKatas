@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace TestingCodingKatas
 {
-    public class LexicographicOrderTest
+    public class ReverseIntegerTest
     {
         [SetUp]
         public void Setup()
@@ -11,46 +11,25 @@ namespace TestingCodingKatas
         }
 
         [Test]
-        public void TestingHelloLeetCode()
+        public void TestingSimpleNumber()
         {
-            var lexi = new LexicographicOrder();
-            Assert.AreEqual(true, lexi.IsAlienSorted(new string[]{"hello","leetcode"},"hlabcdefgijkmnopqrstuvwxyz"));
+            var reverse = new ReverseInteger();
+            Assert.AreEqual(321, reverse.Reverse(123),"Testing 123");
+        }
+        
+        [Test(Description="Negative Number")]
+        public void TestingNegativesNumber()
+        {
+            var reverse = new ReverseInteger();
+            Assert.AreEqual(-321, reverse.Reverse(-123),"Testing 123");
         }
         
         [Test]
-        public void TestingWordWorldRow()
+        public void TestingMaxNumber()
         {
-            var lexi = new LexicographicOrder();
-            Assert.AreEqual(false, lexi.IsAlienSorted(new string[]{"word","world","row"},"worldabcefghijkmnpqstuvxyz"));
+            var reverse = new ReverseInteger();
+            Assert.AreEqual( 0, reverse.Reverse(-2147483648),"Testing int.MaxValue");
         }
-        
-        [Test]
-        public void TestingWordWordRow()
-        {
-            var lexi = new LexicographicOrder();
-            Assert.AreEqual(true, lexi.IsAlienSorted(new string[]{"word","word","row"},"worldabcefghijkmnpqstuvxyz"));
-        }
-        
-        [Test]
-        public void TestingWordLength()
-        {
-            var lexi = new LexicographicOrder();
-            Assert.AreEqual(false, lexi.IsAlienSorted(new string[]{"apple","app"},"abcdefghijklmnopqrstuvwxyz"));
-        }
-        
-        [Test]
-        public void TestingWordEqual()
-        {
-            var lexi = new LexicographicOrder();
-            Assert.AreEqual(true, lexi.IsAlienSorted(new string[]{"apple","apple"},"abcdefghijklmnopqrstuvwxyz"));
-        }
-        
-        [Test]
-        public void TestingLongArray()
-        {
-            var lexi = new LexicographicOrder();
-            Assert.AreEqual(false, lexi.IsAlienSorted(new string[]{"fxasxpc","dfbdrifhp","nwzgs","cmwqriv","ebulyfyve","miracx","sxckdwzv","dtijzluhts","wwbmnge","qmjwymmyox"}
-                ,"zkgwaverfimqxbnctdplsjyohu"));
-        }
+
     }
 }

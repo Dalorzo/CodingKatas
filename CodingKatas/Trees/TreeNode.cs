@@ -1,4 +1,4 @@
-namespace TestingCodingKatas.Trees
+namespace CodingKatas.Trees
 {
     public class TreeNode {
       public int val;
